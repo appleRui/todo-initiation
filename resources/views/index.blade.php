@@ -322,7 +322,6 @@
         </form>
         <table>
           <tr>
-            <th>ID</th>
             <th>作成日</th>
             <th>タスク名</th>
             <th>更新</th>
@@ -330,9 +329,6 @@
           </tr>
           @foreach($items as $item)
           <tr>
-            <td>
-              {{ $item->id }}
-            </td>
             <td>
               {{ $item->created_at }}
             </td>
