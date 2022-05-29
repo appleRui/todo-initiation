@@ -8,19 +8,21 @@ use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $items = Todo::all();
         return view('index', ['items' => $items]);
     }
-    public function create(TodoRequest $request){
+    public function create(TodoRequest $request)
+    {
         $todo = new Todo;
         $form = $request->all();
         unset($form['_token_']);
         $todo->fill($form)->save();
         return redirect('/');
     }
-    public function update(TodoRequest $request){
+    public function update(TodoRequest $request)
+    {
         $todo = Todo::find($request->id);
         $form = $request->all();
         unset($form['_token_']);
