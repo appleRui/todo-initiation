@@ -327,22 +327,22 @@
             <th>更新</th>
             <th>削除</th>
           </tr>
-          @foreach($items as $item)
+          @foreach($todos as $todo)
           <tr>
             <td>
-              {{ $item->created_at }}
+              {{ $todo->created_at }}
             </td>
-            <form action="{{ route('todo.update', ['id' => $item->id]) }}" method="post">
+            <form action="{{ route('todo.update', ['id' => $todo->id]) }}" method="post">
               @csrf
               <td>
-                <input type="text" class="input-update" value="{{ $item->content }}" name="content" />
+                <input type="text" class="input-update" value="{{ $todo->content }}" name="content" />
               </td>
               <td>
                 <button class="button-update">更新</button>
               </td>
             </form>
             <td>
-              <form action="{{ route('todo.delete', ['id' => $item->id]) }}" method="post">
+              <form action="{{ route('todo.delete', ['id' => $todo->id]) }}" method="post">
                 @csrf
                 <button class="button-delete">削除</button>
               </form>

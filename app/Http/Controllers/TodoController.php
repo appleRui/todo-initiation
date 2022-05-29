@@ -10,15 +10,15 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $items = Todo::all();
-        return view('index', ['items' => $items]);
+        $todos = Todo::all();
+        return view('index', ['todos' => $todos]);
     }
     public function create(TodoRequest $request)
     {
-        $todo = new Todo;
+        $new_todo = new Todo;
         $form = $request->all();
         unset($form['_token_']);
-        $todo->fill($form)->save();
+        $new_todo->fill($form)->save();
         return redirect('/');
     }
     public function update(TodoRequest $request)
