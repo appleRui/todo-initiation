@@ -17,7 +17,7 @@ class TodoController extends Controller
     {
         $new_todo = new Todo;
         $form = $request->all();
-        unset($form['_token_']);
+        unset($form['_token']);
         $new_todo->fill($form)->save();
         return redirect('/');
     }
@@ -25,7 +25,7 @@ class TodoController extends Controller
     {
         $todo = Todo::find($request->id);
         $form = $request->all();
-        unset($form['_token_']);
+        unset($form['_token']);
         $todo->fill($form)->save();
         return redirect('/');
     }
